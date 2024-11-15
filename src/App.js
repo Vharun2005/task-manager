@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import {  useState } from 'react';
+import TodoList from './TodoList';
 
 function App() {
+  const [Search,Setsearch] = useState('')
+  const[tasksarr,setTaskarr] = useState([])
+      
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div>
+    <TodoList tasksarr={tasksarr.filter((item) => (item.task.toLowerCase()).includes(Search.toLowerCase()))} setTaskarr={setTaskarr} Search={Search} Setsearch={Setsearch} />
+   </div>
   );
 }
 
